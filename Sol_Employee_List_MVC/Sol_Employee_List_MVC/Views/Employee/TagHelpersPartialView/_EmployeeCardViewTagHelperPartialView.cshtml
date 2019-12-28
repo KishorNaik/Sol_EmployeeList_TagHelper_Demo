@@ -1,0 +1,33 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Sol_Employee_List_MVC.TagHelpers.EmployeeTagHelperModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3 bg-dark text-white shadow rounded">
+                <div class="row no-gutters">
+                    <div class="col-md-4 p-2">
+                        <img src="@Model.Employee.ProfilePicUrl" class="card-img rounded-circle" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title display-3">@($"{Model.Employee.FirstName} {Model.Employee.LastName}")</h5>
+                            <p class="text-muted h5">@($"Gender : {Model.Employee.Gender} | Age : {Model.Employee.Age}")</p>
+                            <hr class="border-white" />
+                            <p class="card-text h4">@($"Department : {Model.Employee.Department}")</p>
+                            <p class="card-text h4">@($"Designation : {Model.Employee.Desgination}")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-danger" asp-action="Index" asp-controller="Employee">Back</a>
+        </div>
+    </div>
+</div>

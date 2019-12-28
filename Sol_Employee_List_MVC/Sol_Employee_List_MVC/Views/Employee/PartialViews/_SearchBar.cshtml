@@ -1,0 +1,22 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Sol_Employee_List_MVC.ViewModel.EmployeeViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group">
+                <input id="txtSearch" type="text" class="form-control" placeholder="FirstName | LastName | Department" asp-for="SearchText" />
+            </div>
+        </div>
+        <div class="col-1">
+            <input id="btnSearch" type="submit" class="btn btn-dark" value="Search" onclick="onSearch(); return false;"/>
+        </div>
+        <div class="col-1">
+            <input id="btnRefresh" type="submit" class="btn btn-success" value="Refresh" onclick="onRefresh(); return false;" />
+        </div>
+    </div>
+</div>
+

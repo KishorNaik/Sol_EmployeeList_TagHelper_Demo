@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model Sol_Employee_List_MVC.ViewModel.EmployeeViewModel
+
+<h1>Employee List</h1>
+
+<form id="frmMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="p-2 m-1">
+                    @await Html.PartialAsync("~/Views/Employee/PartialViews/_SearchBar.cshtml", Model)
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="p-2">
+                    <employee-card item-source="ListEmployee" controller-name="Employee" onview-action-name="OnView"></employee-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+    function onSearch() {
+
+        console.log("On Search");
+
+        $("#frmMain").attr("method","POST");
+        $("#frmMain").attr("action", '@Url.Action("OnSearch","Employee")');
+        $("#frmMain").submit();
+    }
+
+    function onRefresh() {
+
+         console.log("On Refresh");
+
+        $("#frmMain").attr("method","GET");
+        $("#frmMain").attr("action", '@Url.Action("Index","Employee")');
+        $("#frmMain").submit();
+    }
+    </script>
+
+}
+

@@ -1,0 +1,49 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Sol_Employee_List_MVC.TagHelpers.EmployeeTagHelperModel
+
+    <div class="container">
+        <div class="row">
+
+            @foreach (EmployeeModel employeeModel in Model.ListEmployee)
+            {
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+                 
+                    <div class="card user-card shadow-lg rounded">
+
+                        <div class="card-block bg-dark text-white">
+                            <div class="user-image">
+                                <img src="@employeeModel.ProfilePicUrl" class="img-radius" alt="User-Profile-Image">
+                            </div>
+                            <h4 class="f-w-600 m-t-25 m-b-10">@($"{employeeModel.FirstName} {employeeModel.LastName}")</h4>
+                            <p class="text-muted">@($"Gender : {employeeModel.Gender} | Age : {employeeModel.Age}")</p>
+                            <hr class="border-white">
+                           
+                            <div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>@($"Department : {employeeModel.Department}")</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>@($"Designation : {employeeModel.Desgination}")</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="m-t-15 text-muted">@($"Address : {employeeModel.Address}")</p>
+
+                        </div>
+
+                        <div class="card-footer">                            
+                                <a class="btn btn-danger text-white" asp-controller="@Model.ControllerName" asp-action="@Model.ViewActionName" asp-route-id="@employeeModel.Id">View</a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
